@@ -1,7 +1,8 @@
-from django.conf.urls import patterns, url
 from django.views.generic import TemplateView
+from django.urls import path
+from .views import login
 
-urlpatterns = patterns('myapp.views',
-   url(r'^connection/',TemplateView.as_view(template_name = 'login.html')),
-   url(r'^login/', 'login', name = 'login'))
-
+urlpatterns = [
+    path('connection/',TemplateView.as_view(template_name = 'login.html')),
+    path('login/', login, name = 'login') 
+]
